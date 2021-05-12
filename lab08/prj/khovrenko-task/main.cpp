@@ -35,11 +35,11 @@ int main()
     wcout << devInfo() << endl;
 
     wchar_t a, b;
-    wcout << L"Ведіть символ а: ";
+    wcout << L"Введіть символ а: ";
     wcin >> a;
     wcin.clear();
     wcin.ignore(numeric_limits <streamsize> :: max(), '\n');
-    wcout << L"Ведіть символ b: ";
+    wcout << L"Введіть символ b: ";
     wcin >> b;
     wcin.clear();
     wcin.ignore(numeric_limits <streamsize> :: max(), '\n');
@@ -48,16 +48,16 @@ int main()
     int x, y, z;
     do
     {
-        wcout << L"Ведіть число х: ";
+        wcout << L"Введіть число х: ";
         wcin >> x;
         if (x<5)
-            wcout << L"Некоректно введені дані, спробуйте ще раз!" << endl;
+            wcout << L"Некоректно введені дані, число повинно бути цілим та більшим за 4. Спробуйте ще раз!" << endl;
     }while (x<5);
     wcout << L"х у шістнадцятковій системі числення: " << hex << x << dec << endl;
-    wcout << L"Ведіть число у: ";
+    wcout << L"Введіть число у: ";
     wcin >> y;
     wcout << L"y у шістнадцятковій системі числення: " << hex << y << dec << endl;
-    wcout << L"Ведіть число z: ";
+    wcout << L"Введіть число z: ";
     wcin >> z;
     wcout << L"z у шістнадцятковій системі числення: " << hex << z << dec << endl;
     wcout << L"S = " << s_calculation(x, z);
