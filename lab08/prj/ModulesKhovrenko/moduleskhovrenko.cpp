@@ -1,6 +1,11 @@
 #include "moduleskhovrenko.h"
 #include <cmath>
+#include <fstream>
+#include <string>
+#include <ctime>
+#include <bitset>
 
+using namespace std;
 
 double s_calculation(float x, float z)
 {
@@ -33,6 +38,7 @@ if (price < 100)
    task.pay = price - task.bonus*0.25;
    return task;
 }
+
 float Temperature9_2(float t)
    {
        return (5*(t-32))/9;
@@ -56,4 +62,75 @@ int Binary9_3(int N)
         }
     }
     return result;
+}
+
+void task_10_1(char *OutFile,char *InFile)
+{
+   ofstream outFile;
+   outFile.open(OutFile);
+   outFile << "Розробниця: Ховренко Є.Д.\n"
+              "м. Кропивницький, Україна\n"
+              "ЦНТУ, 2021\n";
+
+   ifstream inFile;
+   inFile.open(InFile);
+   string fromFile;
+   inFile >> fromFile;
+   inFile.close();
+   int amount = 0;
+   for (int i=0; i<fromFile.length(); i++)
+   {
+       if (fromFile[i] == 'А' || fromFile[i] == 'а' || fromFile[i] == 'Е' || fromFile[i] == 'е' || fromFile[i] == 'Є' || fromFile[i] == 'є' || fromFile[i] == 'І' || fromFile[i] == 'і' || fromFile[i] == 'Ї' || fromFile[i] == 'ї' || fromFile[i] == 'О' || fromFile[i] == 'о' || fromFile[i] == 'У' || fromFile[i] == 'у' || fromFile[i] == 'Ю' || fromFile[i] == 'ю' || fromFile[i] == 'И' || fromFile[i] == 'и' || fromFile[i] == 'Я' || fromFile[i] == 'я')
+       amount++;
+   }
+   outFile << "\nКількість голосних літер у слові \"" << fromFile << "\": " << amount << endl;
+
+   string kraplina = "До щастя не пускає лінощів орава."
+                     "У чім воно - ніхто не знає до пуття."
+                     "Навчитись радісно робити кожну справу -"
+                     "Найперше правило щасливого життя.";
+
+    if(kraplina.find(fromFile) != string::npos)
+        outFile << "Cлово \"" << fromFile << "\" є в краплинці Віталія Іващенка." << endl;
+    else
+        outFile << "Cлово \"" << fromFile << "\" відсутнє в краплинці Віталія Іващенка." << endl;
+    outFile.close();
+}
+
+void task_10_2(char *OutInFile)
+{
+   ifstream inFile;
+   inFile.open(OutInFile);
+   string fromFile;
+   inFile >> fromFile;
+   inFile.close();
+   ofstream in_File;
+   in_File.open(OutInFile, ios::app);
+   int amoun = 0;
+
+       for (int i=0; i<fromFile.length(); i++)
+   {
+       if (!(fromFile[i] == 'А' || fromFile[i] == 'а' || fromFile[i] == 'Е' || fromFile[i] == 'е' || fromFile[i] == 'Є' || fromFile[i] == 'є' || fromFile[i] == 'І' || fromFile[i] == 'і' || fromFile[i] == 'Ї' || fromFile[i] == 'ї' || fromFile[i] == 'О' || fromFile[i] == 'о' || fromFile[i] == 'У' || fromFile[i] == 'у' || fromFile[i] == 'Ю' || fromFile[i] == 'ю' || fromFile[i] == 'И' || fromFile[i] == 'и' || fromFile[i] == 'Я' || fromFile[i] == 'я'))
+       amoun++;
+   }
+    in_File << "\nКількість приголосних літер у слові: " << amoun << endl;
+    time_t times = time(NULL);
+    in_File << "Час дозапису :"  << asctime (localtime( &times )) << endl;
+    in_File.close();
+
+}
+
+void task_10_3(float x, float z, unsigned b,char *OutFile)
+{
+   ofstream outFile;
+   outFile.open(OutFile, ios::app);
+   if (x>4)
+        outFile << "\nРезультат виконання функції s_calculation: S = " << s_calculation(x, z) << endl;
+    else
+        outFile << "\nРезультат виконання функції s_calculation неможливо обчислити (х повинно бути більшим за 4)!" << endl;
+   if (b>0)
+        outFile<< "Число " << b << " у двійковому коді: " << bitset<32>(b) << endl;
+    else
+        outFile<< "Число " << b << " не натуральне." << endl;
+   outFile.close();
 }
