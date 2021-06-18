@@ -3,14 +3,13 @@
 #include <fstream>
 #include <string>
 #include <windows.h>
-#include <wchar.h>
 #include <locale.h>
-#include <wchar.h>
 
 using namespace std;
 
 int main()
 {
+
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
