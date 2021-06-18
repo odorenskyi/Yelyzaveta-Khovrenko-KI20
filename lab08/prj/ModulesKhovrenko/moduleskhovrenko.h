@@ -16,6 +16,6 @@ float Temperature9_2(float t);
 int Binary9_3(int N);
 void task_10_1(char *OutFile,char *InFile);
 void task_10_2(char *OutInFile);
-void task_10_3(float x, float z, unsigned b,char *OutFile);
+void task_10_3(float x, float z, float b,char *OutFile);
 
 #endif // MODULESKHOVRENKO_H

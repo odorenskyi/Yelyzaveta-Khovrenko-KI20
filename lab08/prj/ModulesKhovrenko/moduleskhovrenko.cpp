@@ -120,7 +120,7 @@ void task_10_2(char *OutInFile)
 
 }
 
-void task_10_3(float x, float z, unsigned b,char *OutFile)
+void task_10_3(float x, float z, float b,char *OutFile)
 {
    ofstream outFile;
    outFile.open(OutFile, ios::app);
